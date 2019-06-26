@@ -1,0 +1,37 @@
+<script>
+let game = (userMove) =>{
+	
+	let computerMove = Math.floor(Math.random() * 3);
+
+	if(userMove === computerMove){
+		console.log("Egalitate");
+	}
+
+	else if(userMove === 0){
+		if(computerMove === 1){
+			console.log("Ai pierdut");
+		}	else{
+			console.log("Ai castigat");
+		}
+	}
+
+	else if(userMove === 1){
+		if(computerMove === 2){
+			console.log("Ai pierdut");
+		}	else{
+			console.log("Ai castigat");
+		}
+	}
+
+	else if(userMove === 2){
+		if(computerMove === 0){
+			console.log("Ai pierdut");
+		}	else{
+			console.log("Ai castigat");
+		}
+	}
+}
+</script>
+<button onclick="game(0)">Rock</button>
+<button onclick="game(1)">Paper</button>
+<button onclick="game(2)">Scissor</button>
