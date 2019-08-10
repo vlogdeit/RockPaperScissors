@@ -1,37 +1,59 @@
-<script>
-let game = (userMove) =>{
-	
-	let computerMove = Math.floor(Math.random() * 3);
 
-	if(userMove === computerMove){
-		console.log("Egalitate");
-	}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rock-Paper-Scissors</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
 
-	else if(userMove === 0){
-		if(computerMove === 1){
-			console.log("Ai pierdut");
-		}	else{
-			console.log("Ai castigat");
-		}
-	}
+	<body>
+		<div class="moves">
+			<div class="computer-move">
+				<div class="text">Computer</div>
+				<img id="computer" src="img/rock.png" />
+			</div>
+			<div class="user-move">
+				<div class="text">User</div>
+				<img id="user" src="img/paper.png" />
+			</div>
+		</div>
 
-	else if(userMove === 1){
-		if(computerMove === 2){
-			console.log("Ai pierdut");
-		}	else{
-			console.log("Ai castigat");
-		}
-	}
+		<div id="status">
+			 Rezultat
+		</div>
 
-	else if(userMove === 2){
-		if(computerMove === 0){
-			console.log("Ai pierdut");
-		}	else{
-			console.log("Ai castigat");
-		}
-	}
-}
-</script>
-<button onclick="game(0)">Rock</button>
-<button onclick="game(1)">Paper</button>
-<button onclick="game(2)">Scissor</button>
+		<div class="play">
+			<button onclick="game(0)">Rock</button>
+			<button onclick="game(1)">Paper</button>
+			<button onclick="game(2)">Scissor</button>
+		</div>
+
+		<script>
+			let game = (userMove) => {
+			 let computerMove = Math.floor(Math.random() * 3);
+			    let matrix=[["Egalitate","Ai castigat","Ai pierdut"],
+											["Ai pierdut","Egalitate","Ai castigat"],
+											["Ai castigat","Ai pierdut","Egalitate"]];
+			    
+			    let status = document.getElementById("status");
+			    let user = document.getElementById("user");
+			    let computer = document.getElementById("computer");
+
+			    switch(userMove){
+			    	case 0: user.src = "img/rock.png";  break; 
+			    	case 1: user.src = "img/paper.png";  break;
+			    	case 2: user.src = "img/scissors.png";  break;
+			    }
+
+			    switch(computerMove){
+			    	case 0: computer.src = "img/rock.png";  break; 
+			    	case 1: computer.src = "img/paper.png";  break;
+			    	case 2: computer.src = "img/scissors.png";  break;
+			    }
+
+
+			    status.innerHTML = matrix[computerMove][userMove];
+			}
+		</script>
+	</body>
+</html>
